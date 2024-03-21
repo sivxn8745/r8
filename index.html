@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculadora de Conversión</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+    }
+    .container {
+        margin-top: 50px;
+    }
+    input[type="number"] {
+        width: 150px;
+        padding: 10px;
+        margin: 10px;
+        font-size: 16px;
+        text-align: center;
+    }
+    button {
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+    #resultado {
+        margin-top: 20px;
+        font-size: 20px;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Calculadora de Conversión</h2>
+    <input type="number" id="celsius" placeholder="Grados Celsius">
+    <button onclick="convertirCelsiusToFahrenheit()">Convertir a Fahrenheit</button>
+    <div id="resultado"></div>
+
+    <input type="number" id="dolares" placeholder="Dólares">
+    <button onclick="convertirDolaresAPesos()">Convertir a Pesos Mexicanos</button>
+    <div id="resultadoDolar"></div>
+</div>
+
+<script>
+    function convertirCelsiusToFahrenheit() {
+        var celsius = parseFloat(document.getElementById("celsius").value);
+        var fahrenheit = (celsius * 9/5) + 32;
+        document.getElementById("resultado").innerHTML = celsius + "°C = " + fahrenheit.toFixed(2) + "°F";
+    }
+
+    function convertirDolaresAPesos() {
+        var dolares = parseFloat(document.getElementById("dolares").value);
+        var tipoCambio = 20; // Ejemplo de tipo de cambio
+        var pesos = dolares * tipoCambio;
+        document.getElementById("resultadoDolar").innerHTML = dolares + " dólares = " + pesos.toFixed(2) + " pesos mexicanos";
+    }
+</script>
+
+</body>
+</html>
